@@ -1,0 +1,2 @@
+# nftx-vault-holding-data
+ 
