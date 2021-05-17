@@ -17,7 +17,7 @@ const getVaults = async () => {
 const saveVaults = function (vaults) {
     const dateFetch = Date.now();
     vaults.map(function (vault){
-        nftxFundMongoArray.push({vaultId: vault.vaultId,vaultHoldings: vault.holdings.length,fundToken: vault.fundToken.name, fundTokenAddress: vault.fundToken.address, nftAddress: vault.asset.address, price: vault.price, priceEth: vault.priceEth, fundDate: dateFetch, })
+        nftxFundMongoArray.push({vaultId: vault.vaultId,vaultHoldings: vault.holdings.length,fundToken: vault.fundToken.name, fundTokenAddress: vault.fundToken.address, nftAddress: vault.asset.address, price: vault.price, priceEth: vault.priceEth, fundDate: new Date(dateFetch), })
     })
 }
 
@@ -27,7 +27,7 @@ const saveVaults = function (vaults) {
 const {MongoClient} = require('mongodb');
 
 async function main(){
-     const uri = "mongodb+srv://nftxAdmin:37BHRYOg0Q5G610Q@cluster0.8vola.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+     const uri = "mongodb+srv://nftxAdmin:37BHRYOg0Q5G610Q@cluster0.8vola.mongodb.net/nftxHoldings?retryWrites=true&w=majority";
      const client = new MongoClient(uri);
 
     try {
